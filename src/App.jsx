@@ -81,6 +81,7 @@ function App() {
             bentuk={volcano.bentuk}
             geolokasi={volcano.geolokasi}
             tinggi_meter={volcano.tinggi_meter}
+            letusan_terakhir={volcano.estimasi_letusan_terakhir}
           />
         ))}
         <div className="col-span-12 flex justify-center">

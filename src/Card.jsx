@@ -8,7 +8,14 @@ const bentukLinks = {
   supervulkan: "https://id.wikipedia.org/wiki/Supervulkan",
 };
 
-export default function Card({ key, nama, tinggi_meter, geolokasi, bentuk }) {
+export default function Card({
+  key,
+  nama,
+  tinggi_meter,
+  geolokasi,
+  bentuk,
+  letusan_terakhir,
+}) {
   return (
     <div
       className="bg-white space-y-2 p-4 rounded-md border md:col-span-4 col-span-12 border-gray-200 shadow-sm hover:scale-95 ease-in duration-100"
@@ -32,14 +39,14 @@ export default function Card({ key, nama, tinggi_meter, geolokasi, bentuk }) {
       <p className="font-medium text-sm">
         Tinggi:{" "}
         <span className="text-gray-600 font-normal capitalize  text-sm">
-          {tinggi_meter}
+          {tinggi_meter === "N/A" ? "Belum diketahui" : tinggi_meter}
         </span>{" "}
       </p>
 
       <p className="font-medium text-sm">
         Geolokasi:{" "}
         <span className="text-gray-600 font-normal capitalize  text-sm">
-          {geolokasi}
+          {geolokasi === "-" ? "Belum diketahui" : geolokasi}
         </span>{" "}
       </p>
       <p className="font-medium text-sm">
@@ -47,16 +54,26 @@ export default function Card({ key, nama, tinggi_meter, geolokasi, bentuk }) {
         {bentuk && bentukLinks[bentuk.toLowerCase()] ? (
           <a
             target="_blank"
-            className="capitalize underline text-gray-600"
+            className="capitalize font-light underline text-gray-600"
             href={bentukLinks[bentuk.toLowerCase()]}
           >
             {bentuk}
           </a>
         ) : bentuk || bentuk === "N/A" ? (
-          <span>Belum Diketahui</span>
+          <span className="text-gray-600">Belum Diketahui</span>
         ) : (
           ""
         )}
+      </p>
+      <p className="font-medium text-sm capitalize">
+        Letusan terakhir:{" "}
+        <span className="text-gray-600 font-normal capitalize  text-sm">
+          {letusan_terakhir === "N/A" ? (
+            <span>Tidak diketahui</span>
+          ) : (
+            letusan_terakhir
+          )}
+        </span>{" "}
       </p>
     </div>
   );

@@ -38,7 +38,11 @@ export default function Content() {
           </p>
         </div>
         <figure className="md:col-span-5 col-span-12">
-          <img className="w-full rounded-md" src="/Bromo.jpg" alt="" />
+          <img
+            className="w-full rounded-md"
+            src="/Bromo.jpg"
+            alt="Gunung Bromo"
+          />
           <figcaption className="text-center text-sm italic text-gray-400 mt-2">
             Sumber: https://unsplash.com/@mlapergolaphoto
           </figcaption>
@@ -72,9 +76,13 @@ export default function Content() {
           </ol>
         </div>
         <figure className="md:col-span-5 col-span-12">
-          <img className="w-full rounded-md" src="/Bromo.jpg" alt="" />
+          <img
+            className="w-full rounded-md"
+            src="/slamet.jpg"
+            alt="gunung slamet"
+          />
           <figcaption className="text-center text-sm italic text-gray-400 mt-2">
-            Sumber: https://unsplash.com/@mlapergolaphoto
+            Sumber: https://unsplash.com/@tituswindip
           </figcaption>
         </figure>
       </div>

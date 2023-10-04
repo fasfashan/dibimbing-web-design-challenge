@@ -8,8 +8,10 @@ export default function Footer() {
           target="_blank"
           href="https://github.com/yogski/indonesia-public-static-api#api-gunung-berapi-indonesia-apivolcanoes"
         >
-          sini
+          sini.
         </a>{" "}
+        <br />
+        Gambar diambil dari Wikipedia.
       </p>
       <button className="bg-white border border-gray-200 text-black shadow-md px-6 py-2 rounded-md self-center">
         <a className="text-sm" href="#header">
