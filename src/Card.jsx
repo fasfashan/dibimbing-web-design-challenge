@@ -1,29 +1,17 @@
-const shapeMeanings = {
-  stratovulkan:
-    "Stratovolcano: A tall, conical volcano composed of layers of hardened lava, tephra, and volcanic ash.",
-  perisai:
-    "Perisai: A shield volcano with gentle slopes and built up primarily by the flow of low-viscosity basaltic lava.",
-  kompleks:
-    "Kompleks: Complex volcano with multiple vents and sub-vents, often forming overlapping calderas.",
-  supervulkan:
-    "Supervolcano: A volcano capable of producing an eruption with an ejecta volume greater than 1,000 cubic kilometers.",
-  fumarol:
-    "Fumarol: A vent in the Earth's crust that emits steam and gases, often found near volcanoes.",
-  kaldera:
-    "Kaldera: A large volcanic crater, typically formed by the collapse of a volcano after an eruption.",
-  "kerucut bara":
-    "Kerucut Bara: Translates to 'Cinder Cone' - a steep conical hill of volcanic fragments that accumulate around and downwind from a vent.",
-  "bawah laut": "shfjkasfkjashfhaskjgdfjkasgfjk",
-  "N/A": "wuyr8eyrwyeruweyy",
-  "kerucut piroklastik": "wuyr8eyrwyeruweyy",
-  kerucut: "wuyr8eyrwyeruweyy",
-  "kubah lava": "wuyr8eyrwyeruweyy",
-  gabungan: "wuyr8eyrwyeruweyy",
+const bentukLinks = {
+  stratovulkan: "https://id.wikipedia.org/wiki/Gunung_berapi_kerucut",
+  kompleks: "https://id.wikipedia.org/wiki/Gunung_berapi_kompleks",
+  "bawah laut": "https://id.wikipedia.org/wiki/Gunung_api_bawah_laut",
+  kaldera: "https://id.wikipedia.org/wiki/Kaldera",
+  gabungan: "https://id.wikipedia.org/wiki/Gunung_berapi_gabungan",
+  "kerucut bara": "https://id.wikipedia.org/wiki/Kerucut_bara",
+  supervulkan: "https://id.wikipedia.org/wiki/Supervulkan",
 };
+
 export default function Card({ key, nama, tinggi_meter, geolokasi, bentuk }) {
   return (
     <div
-      className="bg-white space-y-1 p-4 rounded-md border col-span-4 border-gray-200 shadow-sm hover:scale-95 ease-in duration-100"
+      className="bg-white space-y-2 p-4 rounded-md border col-span-4 border-gray-200 shadow-sm hover:scale-95 ease-in duration-100"
       key={key}
     >
       <img
@@ -55,16 +43,21 @@ export default function Card({ key, nama, tinggi_meter, geolokasi, bentuk }) {
         </span>{" "}
       </p>
       <p className="font-medium text-sm">
-        Bentuk:{" "}
-        <span className="text-gray-600 font-normal capitalize  text-sm">
-          {bentuk}
-        </span>{" "}
+        Bentuk:
+        {bentuk && bentukLinks[bentuk.toLowerCase()] ? (
+          <a
+            target="_blank"
+            className="capitalize underline text-gray-600"
+            href={bentukLinks[bentuk.toLowerCase()]}
+          >
+            {bentuk}
+          </a>
+        ) : bentuk || bentuk === "N/A" ? (
+          <span>Belum Diketahui</span>
+        ) : (
+          ""
+        )}
       </p>
-      {shapeMeanings[bentuk] && (
-        <p className="text-gray-600 px-2 py-2 bg-gray-100 rounded-md text-xs ">
-          {shapeMeanings[bentuk]}
-        </p>
-      )}
     </div>
   );
 }
