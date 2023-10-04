@@ -2,6 +2,8 @@ import { useState } from "react";
 import Header from "./Header";
 import Card from "./Card";
 import Content from "./Content";
+import Footer from "./Footer";
+
 async function getData() {
   const res = await fetch(
     "https://indonesia-public-static-api.vercel.app/api/volcanoes"
@@ -12,9 +14,14 @@ async function getData() {
   return res.json();
 }
 const data = await getData();
+const DATA_COUNT = 6;
 function App() {
   const [sortBy, setSortBy] = useState("nameAsc");
+  const [visibleData, setVisibleData] = useState(DATA_COUNT);
   const sortedData = [...data];
+  const loadMore = () => {
+    setVisibleData((prevVisibleData) => prevVisibleData + DATA_COUNT);
+  };
   let filteredData = sortedData;
   if (sortBy === "nameAsc") {
     filteredData.sort((a, b) => a.nama.localeCompare(b.nama));
@@ -66,8 +73,8 @@ function App() {
           <option value="heightDesc">Tinggi Rendah</option>
         </select>
       </div>
-      <div className="grid max-w-6xl m-auto gap-6 px-4 grid-cols-12 relative mt-20">
-        {filteredData.map((volcano, index) => (
+      <div className="grid max-w-6xl m-auto gap-6 px-4 grid-cols-12 relative mt-8">
+        {filteredData.slice(0, visibleData).map((volcano, index) => (
           <Card
             key={index}
             nama={volcano.nama}
@@ -76,7 +83,18 @@ function App() {
             tinggi_meter={volcano.tinggi_meter}
           />
         ))}
+        <div className="col-span-12 flex justify-center">
+          {visibleData < filteredData.length && (
+            <button
+              onClick={loadMore}
+              className=" text-sm bg-white border border-gray-200 text-black  col-span-full justify-center  shadow-md px-4 py-2 rounded-md"
+            >
+              Muat lagi🔃
+            </button>
+          )}
+        </div>
       </div>
+      <Footer />
     </>
   );
 }

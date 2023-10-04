@@ -1,6 +1,9 @@
 export default function Header() {
   return (
-    <header className="bg-[url('/bg-header.jpg')] p-4 flex justify-center bg-cover bg-center min-h-screen">
+    <header
+      id="header"
+      className="bg-[url('/bg-header.jpg')] p-4 flex justify-center bg-cover bg-center min-h-screen"
+    >
       <div className="flex md:max-w-4xl 2xl:max-w-6xl space-y-4 flex-col justify-center text-center">
         <a href="/">
           {" "}
