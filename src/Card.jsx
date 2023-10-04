@@ -11,7 +11,7 @@ const bentukLinks = {
 export default function Card({ key, nama, tinggi_meter, geolokasi, bentuk }) {
   return (
     <div
-      className="bg-white space-y-2 p-4 rounded-md border col-span-4 border-gray-200 shadow-sm hover:scale-95 ease-in duration-100"
+      className="bg-white space-y-2 p-4 rounded-md border md:col-span-4 col-span-12 border-gray-200 shadow-sm hover:scale-95 ease-in duration-100"
       key={key}
     >
       <img

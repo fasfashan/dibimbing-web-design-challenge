@@ -123,7 +123,7 @@ function App() {
       </div>
       <div
         id="filter"
-        className="flex mt-20 sticky border-b 
+        className="flex mt-20  px-4 sticky border-b 
         } border-gray-200 top-0 py-4 px-2 bg-white z-10 text-sm items-center m-auto max-w-6xl mb-4"
       >
         <label htmlFor="sortSelect" className="mr-2">
@@ -141,10 +141,10 @@ function App() {
           <option value="heightDesc">Tinggi Rendah</option>
         </select>
       </div>
-      <div className="grid max-w-6xl m-auto gap-6 grid-cols-12 relative mt-20">
-        {filteredData.map((volcano) => (
+      <div className="grid max-w-6xl m-auto gap-6 px-4 grid-cols-12 relative mt-20">
+        {filteredData.map((volcano, index) => (
           <Card
-            key={volcano.id}
+            key={index}
             nama={volcano.nama}
             bentuk={volcano.bentuk}
             geolokasi={volcano.geolokasi}
