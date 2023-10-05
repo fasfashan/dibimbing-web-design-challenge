@@ -11,7 +11,8 @@ Tema yang diwajibkan adalah tentang keindahan Indonesia. Saya memilih gunung ber
 ## Teknologi yang digunakan🧑🏻‍💻
 - Vite JS
 - TailwindCSS
-## API
+- Vercel (for deployment)
+## API🔥
 Data gunung berapi ini diambil dari API milik [Mas Yogski](https://github.com/yogski). Bisa cek repositorinya [di sini](https://github.com/yogski/indonesia-public-static-api#api-gunung-berapi-indonesia-apivolcanoes)
 
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
